@@ -1,0 +1,93 @@
+/* styles.css — Black & White only. No gradients. */
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --accent: #fff;
+  --cell-size: 12px; /* tweak for density */
+  --gap: 0px;        /* 0 for tight pixel feel */
+}
+
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  margin: 0;
+  font-family: Galmuri11, system-ui, -apple-system, Segoe UI, Roboto, Apple SD Gothic Neo, Noto Sans KR, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.site-header, .site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--fg);
+}
+.site-footer { 
+  border-top: 1px solid var(--fg);
+  border-bottom: none;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+h1 {
+  font-family: Galmuri14, Galmuri11, sans-serif;
+  letter-spacing: 0.02em;
+  margin: 0;
+  font-size: clamp(14px, 3.2vw, 22px);
+}
+
+.controls {
+  display: inline-flex;
+  gap: 8px;
+}
+button {
+  appearance: none;
+  font: inherit;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--fg);
+  padding: 6px 10px;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 120ms ease-out, opacity 120ms ease-out;
+}
+button:hover { transform: translateY(-1px); }
+button:active { transform: translateY(0); }
+button[aria-pressed="true"] { opacity: 0.7; }
+
+.stage {
+  position: relative;
+  height: calc(100vh - 96px);
+  display: grid;
+  place-items: center;
+  padding: 8px;
+}
+
+#grid {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated; /* keep crisp */
+  outline: 1px solid var(--fg);
+}
+
+.hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(10px, 2.2vw, 12px);
+  padding: 2px 6px;
+  background: var(--bg);
+  border: 1px solid var(--fg);
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  :root { --cell-size: 10px; }
+  .site-header, .site-footer { padding: 10px 12px; }
+}

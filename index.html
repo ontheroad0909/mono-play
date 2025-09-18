@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MONO / PLAY</title>
+    <meta name="description" content="Monochrome generative playground — simple, cool, experimental. No gradients.">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <!-- Galmuri (갈무리체) via jsDelivr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1 aria-label="Monochrome Playground">MONO / PLAY</h1>
+      <nav class="controls" aria-label="Controls">
+        <button id="toggle" aria-pressed="false">PLAY</button>
+        <button id="random">RANDOM</button>
+        <button id="clear">CLEAR</button>
+      </nav>
+    </header>
+
+    <main class="stage">
+      <canvas id="grid" aria-label="Generative grid" role="img"></canvas>
+      <div class="hint" aria-hidden="true">
+        click cells · drag to draw · space: play/pause · r: random · c: clear
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <small>
+        Typeface: 갈무리체 (Galmuri). Code © 2025 H’s helper — MIT License.
+      </small>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
