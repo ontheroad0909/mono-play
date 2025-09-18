@@ -21,10 +21,30 @@
     </header>
 
     <main class="stage">
-      <canvas id="grid" aria-label="Generative grid" role="img"></canvas>
-      <div class="hint" aria-hidden="true">
-        click cells · drag to draw · space: play/pause · r: random · c: clear
+      <div class="stage-canvas">
+        <canvas id="grid" aria-label="Generative grid" role="img"></canvas>
+        <div class="hint" aria-hidden="true">
+          click / drag · Shift+drag: erase · space: play/pause · r: random · c: clear
+        </div>
       </div>
+      <section class="panel" aria-label="세부 설정">
+        <div class="panel-group">
+          <div class="panel-row">
+            <label for="speed" class="panel-label">재생 속도</label>
+            <input id="speed" type="range" min="50" max="400" step="10" value="120" aria-describedby="speed-value speed-help">
+            <output id="speed-value" class="panel-value">120ms</output>
+          </div>
+          <p id="speed-help" class="panel-help">틱 사이 간격(ms). 값이 작을수록 패턴이 빠르게 변합니다.</p>
+        </div>
+        <div class="panel-group">
+          <div class="panel-row">
+            <label for="density" class="panel-label">랜덤 채움</label>
+            <input id="density" type="range" min="5" max="60" step="1" value="18" aria-describedby="density-value density-help">
+            <output id="density-value" class="panel-value">18%</output>
+          </div>
+          <p id="density-help" class="panel-help">R 버튼으로 채울 때 살아 있는 셀의 대략적인 비율입니다.</p>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
